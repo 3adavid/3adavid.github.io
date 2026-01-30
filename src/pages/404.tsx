@@ -24,4 +24,9 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>404: Not Found | ea.caret</title>;
+export const Head: HeadFC = () => (
+  <>
+    <title>404: Not Found | ea.caret</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </>
+);

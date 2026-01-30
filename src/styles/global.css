@@ -41,6 +41,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -49,12 +50,16 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .container {
   width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
+  overflow-x: hidden;
 }
 
 @media (min-width: 768px) {
@@ -124,6 +129,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 header .container {
@@ -271,13 +278,80 @@ header nav a:hover {
 }
 
 @media (max-width: 768px) {
+  header .container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    /* Logo | Nav | Toggle */
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    align-items: center;
+  }
+
   header .header-content {
-    flex-direction: column;
-    gap: 1rem;
+    display: contents;
+  }
+
+  header .logo {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 1.125rem;
+    margin-right: 0.5rem;
+  }
+
+  .theme-toggle {
+    grid-column: 3;
+    grid-row: 1;
+    position: static;
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0.25rem;
+  }
+
+  header nav {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    align-items: center;
+    border: none;
+    padding: 0;
+    width: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Hide scrollbar */
+  }
+
+  header nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  header nav a {
+    font-size: 0.8125rem;
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;
   }
 
   .search-container {
-    max-width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    margin-top: 0;
+    order: unset;
+  }
+
+  .search-input {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .search-results {
+    max-height: 50vh;
+    z-index: 1001;
   }
 }
 
@@ -370,10 +444,24 @@ header nav a:hover {
 
   .hero h1 {
     font-size: 2.25rem;
+    line-height: 1.15;
   }
 
   .hero p {
     font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
   }
 }
 
@@ -390,12 +478,14 @@ section::before {
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   height: 300px;
   background: radial-gradient(ellipse, rgba(0, 0, 0, 0.015), transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
+
 
 [data-theme="dark"] section::before {
   background: radial-gradient(ellipse, rgba(255, 255, 255, 0.01), transparent 70%);
@@ -440,6 +530,14 @@ section .container {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.125rem;
   }
 }
 
@@ -674,6 +772,34 @@ footer .links a:hover {
   footer .container {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  article h1 {
+    font-size: 2rem;
+  }
+
+  article .description {
+    font-size: 1rem;
+  }
+
+  .article-nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .article-nav .nav-link {
+    padding: 1.25rem;
+  }
+
+  .pagination {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pagination a,
+  .pagination span {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
   }
 }
 

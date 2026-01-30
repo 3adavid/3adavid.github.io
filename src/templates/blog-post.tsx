@@ -110,6 +110,7 @@ export const Head: HeadFC<BlogPostTemplateProps["data"]> = ({ data }) => {
     return (
         <>
             <title>{post.frontmatter.title} | ea.caret</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="description" content={post.frontmatter.description || post.excerpt} />
             <meta property="og:title" content={post.frontmatter.title} />
             <meta property="og:description" content={post.frontmatter.description || post.excerpt} />

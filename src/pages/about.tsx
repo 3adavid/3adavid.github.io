@@ -67,6 +67,7 @@ export default AboutPage;
 export const Head: HeadFC = () => (
     <>
         <title>About | ea.caret</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Learn about ea.caret, your trusted source for tech trends, AI updates, security vulnerabilities, and library announcements." />
         <meta property="og:title" content="About | ea.caret" />
         <meta property="og:description" content="Learn about ea.caret, your trusted source for tech trends, AI updates, security vulnerabilities, and library announcements." />

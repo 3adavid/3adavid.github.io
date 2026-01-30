@@ -12,6 +12,7 @@ export const SEO: React.FC<SEOProps> = ({ title, description, pathname, children
     return (
         <>
             <title>{title} | ea.caret</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="description" content={description || "A professional blog for trending tech announcements"} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description || "A professional blog for trending tech announcements"} />

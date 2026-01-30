@@ -80,6 +80,7 @@ export default IndexPage;
 export const Head: HeadFC = () => (
   <>
     <title>ea.caret - Tech Trends & Announcements</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Stay updated on the latest AI trends, security vulnerabilities, library updates, and emerging technologies." />
   </>
 );
