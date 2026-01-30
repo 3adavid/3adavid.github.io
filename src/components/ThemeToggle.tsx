@@ -4,14 +4,19 @@ import { useState, useEffect } from "react";
 export const ThemeToggle: React.FC = () => {
     const [theme, setTheme] = useState<"light" | "dark">("light");
 
+    // Sync state with the attribute set by gatsby-ssr on mount
     useEffect(() => {
-        // Check for saved theme preference or default to light
-        const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-        const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
-        setTheme(initialTheme);
-        document.documentElement.setAttribute("data-theme", initialTheme);
+        const currentTheme = document.documentElement.getAttribute("data-theme") as "light" | "dark" | null;
+        if (currentTheme) {
+            setTheme(currentTheme);
+        } else {
+            // Fallback if script didn't run for some reason
+            const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+            setTheme(initialTheme);
+            document.documentElement.setAttribute("data-theme", initialTheme);
+        }
     }, []);
 
     const toggleTheme = () => {
