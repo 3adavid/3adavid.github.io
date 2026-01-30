@@ -13,22 +13,30 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "deploy": "gatsby build && gh-pages -d public -b main"
   },
   "dependencies": {
-    "@mdx-js/react": "^3.1.1",
+    "@mdx-js/react": "^2.3.0",
+    "@tailwindcss/postcss": "^4.1.18",
     "autoprefixer": "^10.4.23",
+    "date-fns": "^3.3.1",
     "gatsby": "^5.14.6",
-    "gatsby-plugin-google-gtag": "^5.16.0",
+    "gatsby-plugin-feed": "^5.16.0",
     "gatsby-plugin-image": "^3.16.0",
     "gatsby-plugin-manifest": "^5.16.0",
     "gatsby-plugin-mdx": "^5.16.0",
     "gatsby-plugin-postcss": "^6.16.0",
     "gatsby-plugin-sharp": "^5.16.0",
     "gatsby-plugin-sitemap": "^6.16.0",
+    "gatsby-remark-autolink-headers": "^6.16.0",
+    "gatsby-remark-images": "^7.16.0",
+    "gatsby-remark-prismjs": "^7.16.0",
     "gatsby-source-filesystem": "^5.16.0",
+    "gatsby-transformer-remark": "^6.16.0",
     "gatsby-transformer-sharp": "^5.16.0",
     "postcss": "^8.5.6",
+    "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^4.1.18"
@@ -37,6 +45,7 @@
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
+    "gh-pages": "^6.1.1",
     "typescript": "^5.3.3"
   }
 }
